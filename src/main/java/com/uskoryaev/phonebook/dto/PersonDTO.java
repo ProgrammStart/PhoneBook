@@ -8,6 +8,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class PersonDTO {
+    private Long personId;
     private String name;
     private Set<ContactDTO> contacts;
 }
