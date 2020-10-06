@@ -1,0 +1,55 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  &__title {
+    padding: 30px;
+    text-align: center;
+    font-family: "PT Sans", serif;
+    font-size: 45px;
+    font-weight: bold;
+    color: black;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+
+  &-update {
+    background: lawngreen;
+  }
+
+  &-add-phone {
+    background: cornflowerblue;
+  }
+
+  &-delete {
+    margin-left: 10px;
+    background: red;
+  }
+
+  &-back {
+    background: rgba(117, 117, 117, 0.5);
+    margin-bottom: 30px;
+  }
+}
+
+.form {
+  display: flex;
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__telephone {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+}

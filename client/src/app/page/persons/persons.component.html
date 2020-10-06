@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <div class="container">
+    <header class="header">
+      <h1 class="header__title">Phone Book</h1>
+    </header>
+    <div class="content">
+      <div class="options">
+        <div class="button">
+          <a class="button-add" mat-raised-button [routerLink]="['/person-add']">add Person</a>
+        </div>
+        <div class="filter">
+          <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="name" #input>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="persons">
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> No</th>
+              <td mat-cell *matCellDef="let i=index; "> {{i + 1}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+              <td mat-cell *matCellDef="let person"> {{person.name}}</td>
+            </ng-container>
+            <ng-container matColumnDef="options">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let person">
+                <button [routerLink]="['/person-detail/'+person.personId]"
+                        class="custom-margin button-edit" mat-raised-button>Edit
+                </button>
+                <button (click)="delete(person.personId)"
+                        class="custom-margin button-delete" mat-raised-button>Delete
+                </button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching  {{input.value}}</td>
+            </tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

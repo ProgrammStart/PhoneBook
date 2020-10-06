@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="container">
+    <header class="header">
+      <h2 class="header__title">Person Add</h2>
+      <div>
+        <button class="button-back" mat-raised-button routerLink="/">back</button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="stepper">
+        <mat-horizontal-stepper #stepper>
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Fill out your name</ng-template>
+              <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput
+                       [(ngModel)]="person.name"
+                       placeholder="Last name or First name"
+                       formControlName="nameInput"
+                       required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup" label="Fill out your telephone">
+            <form [formGroup]="secondFormGroup">
+              <mat-form-field>
+                <mat-label>Telephone</mat-label>
+                <input matInput
+                       [(ngModel)]="contact.telephone"
+                       formControlName="telephoneInput"
+                       placeholder="Mob. phone or Home phone"
+                       required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button (click)="put();stepper.reset()">Save</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </div>
+    </div>
+  </div>
+</div>

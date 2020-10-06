@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <div class="container">
+    <header class="header">
+      <h2 class="header__title">Person Detail</h2>
+      <div>
+        <button class="button-back" mat-raised-button routerLink="/">back</button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="form">
+        <div class="form__name">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="person.name" placeholder="Name">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+          <div class="button">
+            <button class="button-update" mat-raised-button (click)="update(person.personId)">Save</button>
+            <button class="button-add-phone" mat-raised-button (click)="addPhone()">add Phone</button>
+          </div>
+        </div>
+        <ul class="form__telephone">
+          <li *ngFor="let contact of person.contacts">
+            <mat-form-field appearance="outline">
+              <mat-label>Phone number</mat-label>
+              <input matInput [(ngModel)]="contact.telephone" placeholder="Telephone"/>
+            </mat-form-field>
+            <button class="button-delete" mat-raised-button (click)="delete(contact.contactId)">X</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

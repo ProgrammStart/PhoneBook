@@ -1,0 +1,35 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  &__title {
+    padding: 30px;
+    text-align: center;
+    font-family: "PT Sans", serif;
+    font-size: 45px;
+    font-weight: bold;
+    color: black;
+  }
+}
+
+.content {
+  .stepper {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.button-back {
+  background: rgba(117, 117, 117, 0.5);
+}
+
+//##########    material stepper   ##########
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
